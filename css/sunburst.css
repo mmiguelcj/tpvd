@@ -1,0 +1,50 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  background-color: #fff;
+  margin-top: 10px;
+}
+
+#sidebar {
+  margin: auto;
+  float: left;
+  width: auto;
+}
+
+#sequence {
+  padding-top: 20px;
+  width: auto;
+  height: auto;
+}
+
+#legend {
+  margin: auto;
+  padding: 10px 0 0 10px;
+}
+
+#sequence text, #legend text {
+  font-weight: 600;
+  fill: #fff;
+}
+
+#chart {
+  position: relative;
+}
+
+#chart path {
+  stroke: #fff;
+}
+
+#explanation {
+  position: absolute;
+  top: 9.5em;
+  left: 4em;
+  width: auto;
+  text-align: center; 
+  color: #666;
+  z-index: -1;
+}
+
+#percentage {
+  font-size: 2.5em;
+}

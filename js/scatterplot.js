@@ -17,9 +17,10 @@ function createScatterplot(Data) {
       bottom: 60,
       left: 60
     },
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
-
+    width = $("#scatteGraph").width()*0.9 - margin.left - margin.right,
+    height = $("#scatteGraph").width()*0.65 - margin.top - margin.bottom;
+    console.log($("#scatteGraph").width());
+    
   // x and y scales, I've used linear here but there are other options
   // the scales translate data values to pixel values for you
   var x = d3.scale.linear()

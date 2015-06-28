@@ -4,16 +4,34 @@
     <title>Visualização de Dados - TP Final</title>
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/sunburst.css"/>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600"> -->
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
 </head>
 <body>
-      <div id="body">
-            <h1 class="text-center ">Grafico Scatterplot!</h1>
-            <div id="scatteGraph">
-                
+    <div id="content" class="row">
+        <!--Grafico Scatterplot-->
+        <div id="scatteGraph" class="col-md-8">           
+            <h1 class="text-center "> Visualização de Dados - TP Final!</h1>
+        </div>
+        <!--Grafico Sunburst-->
+        <div id ="sunburstGraph" class="col-md-4">
+            <div id="sequence"> </div>
+            <div id="chart">
+                <div id="explanation" style="visibility: hidden;">
+                    <span id="percentage"></span><br/>
+                        Tempo médio de recuperação.
+                </div>
             </div>
-      </div>   
+        </div>
+        <div id="sidebar">
+        <input type="checkbox" id="togglelegend"> Legend <br/>
+        <div id="legend" style="visibility: hidden;">
+        </div>
+    </div>  
+    </div>     
     
     <!-- Libries -->
     <script src="lib/jquery-1.11.3.js"></script>
@@ -23,7 +41,11 @@
     <!-- JS's -->
     <script src="js/index.js"></script>
     <script src="js/scatterplot.js"></script>
-
-    
+        <!-- Sunburst -->
+        <script src="js/sunburst.js"></script>
+        <script type="text/javascript">
+            // Hack to make this example display correctly in an iframe on bl.ocks.org
+            //d3.select(self.frameElement).style("height", "700px");
+        </script> 
 </body>
 </html>

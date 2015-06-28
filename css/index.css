@@ -1,3 +1,17 @@
-.titulo{
-    
+#content {
+    width: auto;
+    height: auto;
+}
+
+#scatteGraph{
+    width: 68%;
+    height: 68%;
+    float: left;
+}
+
+
+#sunburstGraph{
+    width: 29%;
+    height: 29%;
+    float: right;
 }
