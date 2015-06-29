@@ -16,12 +16,26 @@ var b = {
 
 // Mapping of step names to colors.
 var colors = {
-  "sspTap": "#5687d1",
-  "Transponder": "#7b615c",
-  "Antena": "#de783b",
-  "CMTS": "#6ab975",
-  "Geral": "#a173d1",
-  "end": "#bbbbbb"
+  "sspTap": "#1f77b4",
+  "Transponder": "#aec7e8",
+  "Antena": "#ff7f0e",
+  "CMTS": "#ffbb78",
+  "Geral": "#2ca02c",
+  "Infra": "#d62728",
+  "IRD/LYNX/MAT/MOD/PNET/RPR":"#ff9896",
+ "MB/BLE/BTD":"#9467bd",
+ "Cabos":"#c5b0d5",
+ "Fonte":"#8c564b",
+ "Passivos":"#c49c94",
+ "SG2000/4000":"#e377c2",
+ "Receptor":"#f7b6d2",
+ "Scrambler":"#7f7f7f",
+ "Servidor":"#c7c7c7",
+ "TransmissorOpt":"#bcbd22",
+ "Rompimento":"#dbdb8d",
+ "Falha de energia":"#17becf",
+ "Travado":"#9edae5",
+  "end": "#98df8a"
 };
 
 // Total size of all segments; we set this later, after loading the data.
