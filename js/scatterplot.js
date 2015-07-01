@@ -47,8 +47,8 @@ function createScatterplot(Data) {
 
   // draw the x axis
   var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient('bottom');
+    .scale(x
+)    .orient('bottom');
 
   main.append('g')
     .attr('transform', 'translate(0,' + height + ')')
