@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="br">
 <head>
-<title>Visualização de Dados - TP Final</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="css/index.css">
+<link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+<title>TP Final de Visualização de Dados</title>
+
+<link rel="stylesheet" href="css/visualizacao.css">
 <link rel="stylesheet" type="text/css" href="css/sunburst.css" />
 
 <link href="./lib/bootstrap3/css/bootstrap.css" rel="stylesheet">
@@ -15,49 +22,99 @@
 <script type="text/javascript" src="./lib/d3/d3.js"></script>
 
 
-<!-- <link rel="stylesheet" type="text/css"
-      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600"> -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<!-- Custom styles for this template -->
+<link href="lib/ie/starter-template.css" rel="stylesheet">
+
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<script src="./lib/ie/ie-emulation-modes-warning.js"></script>
+<script src="./lib/ie/ie10-viewport-bug-workaround.js"></script>
 </head>
+
 <body>
-	<div id="content" class="row"> 
-		<!--Grafico Scatterplot : col-md-8-->
-		<div id="scatteGraph" class="col">
-			<h1 class="text-center ">Visualização de Dados - TP Final!</h1>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Trabalho Final</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#inicio"
+						data-toggle="tab">Visualização</a></li>
+					<li class=""><a href="#about" data-toggle="tab">Sobre</a></li>
+					<li class=""><a href="#contact" data-toggle="tab">Contatos</a></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
 		</div>
-		
-		<!--Grafico Sunburst col-md-4 -->
-		<div id="sunburstGraph" class="col">
-			<div id="sequence"></div>
-			<div id="chart">
-				<div id="explanation" style="visibility: hidden;">
-					<span id="percentage"></span><br /> Tempo médio de recuperação.
+	</nav>
+
+<!-- Aqui entra o que vai conter em cada aba -->
+	<div class="tab-content">
+	
+		<!-- Aba de inicio contem as visualizações -->
+		<div class="tab-pane  active" id="inicio">
+			<div id="content" class="row">
+			
+				<!--Grafico Scatterplot -->
+				<div id="scatteGraph" class="col">
+				</div>
+
+				<!--Grafico Sunburst -->
+				<div id="sunburstGraph" class="col">
+					<div id="sequence"></div>
+					<div id="chart">
+						<div id="explanation" style="visibility: hidden;">
+							<span id="percentage"></span><br /> Tempo médio de recuperação.
+						</div>
+					</div>
+				</div>
+			
+				<!-- Legenda do sunbustGraph -->
+				<div id="sidebar">
+					<!-- Mudei o checkbox da legenda para um botão -->
+					<div id="conjuntoLegenda">
+						<div id="legend"></div>
+						<button type="button" class="btn btn-primary" id="botaoLegenda">
+							<i class="glyphicon glyphicon-list"></i>
+						</button>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div id="sidebar">
-			<!-- 			        <input type="checkbox" id="togglelegend"> Legend <br/> -->
-			<!-- 			        <div id="legend" style="visibility: hidden;"></div> -->
+
 			
-			<!-- Mudei o checkbox da legenda para um botão -->
-			<div id="conjuntoLegenda">
-				<div id="legend"></div>
-				<button type="button" class="btn btn-primary" id="botaoLegenda">
-					<i class="glyphicon glyphicon-list"></i>
-				</button>
+		</div>
+
+		<div class="tab-pane" id="about">
+			<div id = "sobre">
+			<h2>Trabalho final da disciplina de Visualização de Dados</h2>
+			<br>
+			</div>
+		</div>
+
+		<div class="tab-pane" id="contact">
+			<div id ="contatos">
+			<h3>Guilherme Henrique Rodrigues Nascimento</h3>
+			<h3>Mauri Miguel</h3>
+			<h3>Leandro Augusto</h3>
+			 
 			</div>
 		</div>
 	</div>
 
-	<!-- JS's -->
-	<script src="js/index.js"></script>
-	<script src="js/scatterplot.js"></script>
-
-	<!-- Sunburst -->
-	<script src="js/sunburst.js"></script>
-	<script type="text/javascript">
-		// Hack to make this example display correctly in an iframe on bl.ocks.org
-		//d3.select(self.frameElement).style("height", "700px");
-	</script>
+			<!-- JS's -->
+			<script type="text/javascript" src="./js/visualizacao.js"></script>
+			<script type="text/javascript" src="./js/scatterplot.js"></script>
+			<!-- Sunburst -->
+			<script type="text/javascript" src="./js/sunburst.js"></script>
+	
 </body>
+
 </html>
