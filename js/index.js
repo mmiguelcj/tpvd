@@ -138,7 +138,13 @@ function buildHierarchy(csv) {
     return root;
 };
 
+//codigo para manipular a legenda
 
+$(document).ready(function(){
+    $("#botaoLegenda").click(function(){
+        $("#legend").slideToggle("slow");
+    });
+});
 
 //Códigos que não uso mais.
 /* //Mapeandos Areas.
