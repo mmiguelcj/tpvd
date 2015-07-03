@@ -16,15 +16,14 @@
 <link href="./lib/bootstrap3/css/bootstrap.css" rel="stylesheet">
 <link href="./lib/bootstrap3/css/bootstrap-theme.css" rel="stylesheet">
 
+<link href="./lib/bootstrap3/css/bootstrap.css" rel="stylesheet">
+<link href="./lib/bootstrap3/css/bootstrap-theme.css" rel="stylesheet">
 <script type="text/javascript" src="./lib/jquery/jquery-1.11.3.js"></script>
 <script type="text/javascript" src="./lib/bootstrap3/js/bootstrap.js"></script>
-<script type="text/javascript" src="./lib/jqueryui/jquery-ui.js"></script>
 <script type="text/javascript" src="./lib/d3/d3.js"></script>
-
 
 <!-- Custom styles for this template -->
 <link href="lib/ie/starter-template.css" rel="stylesheet">
-
 <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 <script src="./lib/ie/ie-emulation-modes-warning.js"></script>
 <script src="./lib/ie/ie10-viewport-bug-workaround.js"></script>
@@ -61,35 +60,7 @@
 	
 		<!-- Aba de inicio contem as visualizações -->
 		<div class="tab-pane  active" id="inicio">
-			<div id="content" class="row">
-			
-				<!--Grafico Scatterplot -->
-				<div id="scatteGraph" class="col">
-				</div>
-
-				<!--Grafico Sunburst -->
-				<div id="sunburstGraph" class="col">
-					<div id="sequence"></div>
-					<div id="chart">
-						<div id="explanation" style="visibility: hidden;">
-							<span id="percentage"></span><br /> Tempo médio de recuperação.
-						</div>
-					</div>
-				</div>
-			
-				<!-- Legenda do sunbustGraph -->
-				<div id="sidebar">
-					<!-- Mudei o checkbox da legenda para um botão -->
-					<div id="conjuntoLegenda">
-						<div id="legend"></div>
-						<button type="button" class="btn btn-primary" id="botaoLegenda">
-							<i class="glyphicon glyphicon-list"></i>
-						</button>
-					</div>
-				</div>
-			</div>
-
-			
+			<?php include('visualizacao.php');?>
 		</div>
 
 		<div class="tab-pane" id="about">
@@ -108,13 +79,6 @@
 			</div>
 		</div>
 	</div>
-
-			<!-- JS's -->
-			<script type="text/javascript" src="./js/visualizacao.js"></script>
-			<script type="text/javascript" src="./js/scatterplot.js"></script>
-			<!-- Sunburst -->
-			<script type="text/javascript" src="./js/sunburst.js"></script>
-	
 </body>
 
 </html>

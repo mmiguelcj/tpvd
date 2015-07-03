@@ -1,3 +1,4 @@
+
 <div id="content" class="row"> 
 		<!--Grafico Scatterplot : col-md-8-->
 		<div id="scatteGraph" class="col">
@@ -25,11 +26,11 @@
 	</div>
 
 	<!-- JS's -->
-	<script type="text/javascript" src="./js/visualizacao.js"></script>
-	<script type="text/javascript" src="./js/scatterplot.js"></script>
+	<script src="js/visualizacao.js"></script>
+	<script src="js/scatterplot.js"></script>
 
 	<!-- Sunburst -->
-	<script type="text/javascript" src="./js/sunburst.js"></script>
+	<script src="js/sunburst.js"></script>
 	<script type="text/javascript">
 		// Hack to make this example display correctly in an iframe on bl.ocks.org
 		//d3.select(self.frameElement).style("height", "700px");
