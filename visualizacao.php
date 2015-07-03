@@ -1,4 +1,3 @@
-
 <div id="content" class="row"> 
 		<!--Grafico Scatterplot : col-md-8-->
 		<div id="scatteGraph" class="col">
