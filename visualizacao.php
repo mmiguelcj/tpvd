@@ -2,7 +2,6 @@
 <div id="content" class="row"> 
 		<!--Grafico Scatterplot : col-md-8-->
 		<div id="scatteGraph" class="col">
-			<h1 class="text-center ">Visualização de Dados - TP Final!</h1>
 		</div>
 		
 		<!--Grafico Sunburst col-md-4 -->
