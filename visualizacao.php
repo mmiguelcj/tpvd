@@ -33,3 +33,15 @@
 		// Hack to make this example display correctly in an iframe on bl.ocks.org
 		//d3.select(self.frameElement).style("height", "700px");
 	</script>
+
+	<!--Inicio-->
+	
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				scarter ();
+
+				parseSunburst("dados");
+			});
+
+		</script>

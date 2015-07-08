@@ -2,6 +2,9 @@
 ALGUMAS COISAS GLOBAIS POR ENQUANTO.
 */
 // Dimensions of sunburst.
+// 
+// 
+
 var width = $("#sunburstGraph").width()*0.8;
 var height = $("#sunburstGraph").width()*0.8;
 var radius = Math.min(width, height) / 2;
@@ -61,17 +64,16 @@ var colors = {
 "VERIFICAÇÃO":"#ff9896"
 	
 };
+  //Global
+  var totalSize = 0;
 
-// Total size of all segments; we set this later, after loading the data.
-var totalSize = 0;
-
-var vis = d3.select("#chart").append("svg:svg")
+  var vis = d3.select("#chart").append("svg:svg")
   .attr("width", width)
   .attr("height", height)
   .append("svg:g")
   .attr("id", "container")
   .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
+  
 var partition = d3.layout.partition()
   .size([2 * Math.PI, radius * radius])
   .value(function(d) {
@@ -91,11 +93,19 @@ var arc = d3.svg.arc()
   .outerRadius(function(d) {
     return Math.sqrt(d.y + d.dy);
   });
-
-
-
+//Refresha o grafico quando clicar nele.
+function refreshSunburst(nome){
+  parseSunburst(nome);
+}
 // Main function to draw and set up the visualization, once we have the data.
 function createSunburst(json) {
+ 
+
+//Acaba global
+
+  // Total size of all segments; we set this later, after loading the data.
+  
+
   // Basic setup of page elements.
   initializeBreadcrumbTrail();
   drawLegend();
@@ -132,6 +142,7 @@ function createSunburst(json) {
 
   // Get total size of the tree = value of root node from partition.
   totalSize = path.node().__data__.value;
+
 };
 
 // Fade all but the current sequence, and show it in the breadcrumb trail.

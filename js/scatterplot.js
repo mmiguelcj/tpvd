@@ -8,7 +8,7 @@ function createScatterplot(Data) {
     ydata.push(Data[key].tempoTotal);
     xdata.push(key);
   }
-  console.log(ydata.length);
+  console.log(ydata);
 
   // size and margins for the chart
   var margin = {
@@ -67,10 +67,19 @@ function createScatterplot(Data) {
 
   // draw the graph object
   var g = main.append("svg:g");
-
+  var name;
   g.selectAll("scatter-dots")
     .data(ydata) // using the values in the ydata array
-    .enter().append("svg:circle") // create a new circle for each value
+    .enter()
+    .append("a")
+    .attr("xlink:id", function(d, i){
+      name = xdata[i + 15];
+      return xdata[i + 15];
+    })
+    .on("click", function(){
+      return refreshSunburst(name.toLowerCase());
+    })
+    .append("svg:circle") // create a new circle for each value
     .attr("cy", function(d) {
       return y(d);
     }) // translate y value to a pixel
@@ -86,15 +95,15 @@ function createScatterplot(Data) {
       .data(ydata)
       .enter().append("text")
       .text( function(d, i) {
-        return xdata[i + 15];
+        return Data[xdata[i + 15]].length+" - "+xdata[i + 15];
       })
       .attr("font-family", "sans-serif")
-      .attr("font-size", "20px")
+      .attr("font-size", "12px")
       .attr("fill", "red")
       .attr("x", function(d, i) {
-        return x(xdata[i])+9;
+        return x(xdata[i])+12; //ajutste
       })
       .attr("y", function(d) {
-        return y(d);
+        return y(d)-8;
       });
 }

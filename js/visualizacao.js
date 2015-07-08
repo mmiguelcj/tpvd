@@ -2,21 +2,25 @@
  *Pega um arquivo CSV no formato  RFC4180 e
  *o transforma em um Objeto.
  */
+//Gera Scaterplot
+function scarter (){
+    d3.text("data/data.csv", function(text) {
+        var json = d3.csv.parse(text);
+        var dataScatter = parseScatterplot(json);
+        console.log(dataScatter);
+        createScatterplot(dataScatter);
+    });
+}
 
-d3.text("data/data.csv", function(text) {
-    var json = d3.csv.parse(text);
-    var dataScatter = parseScatterplot(json);
-    console.log(dataScatter);
-    createScatterplot(dataScatter);
-    
-    parseSunburst();
-});
-
-function parseSunburst() {
-    d3.text("data/dados.csv", function(text) {
+//Refresha o grafico quando clicar nele.
+function refreshSunburst(nome){
+  parseSunburst(nome);
+}
+function parseSunburst(name) {
+    d3.text("data/"+name+".csv", function(text) {
         var csv = d3.csv.parseRows(text);
         dados = buildHierarchy(csv);
-        createSunburst(dados)
+        createSunburst(dados);
     });
 }
 
