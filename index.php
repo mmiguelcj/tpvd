@@ -79,7 +79,7 @@
 			<div id ="contatos">
 			<h3>Guilherme Henrique Rodrigues Nascimento</h3>
 			<h3>Mauri Miguel</h3>
-			<h3>Leandro Augusto</h3>
+			<h3>Leandro Augusto de Sa Vieira</h3>
 			 
 			</div>
 		</div>
