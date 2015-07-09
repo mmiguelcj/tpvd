@@ -4,12 +4,9 @@ ALGUMAS COISAS GLOBAIS POR ENQUANTO.
 // Dimensions of sunburst.
 // 
 // 
-
 var width = $("#sunburstGraph").width()*0.8;
 var height = $("#sunburstGraph").width()*0.8;
 var radius = Math.min(width, height) / 2;
-
-// Breadcrumb dimensions: width, height, spacing, width of tip/tail.
 var b = {
   w: 75,
   h: 30,
@@ -17,6 +14,7 @@ var b = {
   t: 10
 };
 
+var vis = null;
 // Mapping of step names to colors.
 var colors = {
 "SG2000":"#8c564b",
@@ -62,17 +60,28 @@ var colors = {
 "TRANSMITER" :"#c5b0d5",
 "VERIFIC" :"#9467bd",
 "VERIFICAÇÃO":"#ff9896"
-	
+  
 };
+
+function globalSun(json) {
+  console.log(json);
+$("#sunburst").remove();
+$("#sequence").empty();
+
+
+// Breadcrumb dimensions: width, height, spacing, width of tip/tail.
+
   //Global
   var totalSize = 0;
 
-  var vis = d3.select("#chart").append("svg:svg")
+  vis = d3.select("#chart").append("svg:svg")
+  .attr("id", "sunburst")
   .attr("width", width)
   .attr("height", height)
   .append("svg:g")
   .attr("id", "container")
   .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+  
   
 var partition = d3.layout.partition()
   .size([2 * Math.PI, radius * radius])
@@ -93,12 +102,11 @@ var arc = d3.svg.arc()
   .outerRadius(function(d) {
     return Math.sqrt(d.y + d.dy);
   });
-//Refresha o grafico quando clicar nele.
-function refreshSunburst(nome){
-  parseSunburst(nome);
+
+  createSunburst(json, vis, partition, arc);
 }
 // Main function to draw and set up the visualization, once we have the data.
-function createSunburst(json) {
+function createSunburst(json, vis, partition, arc) {
  
 
 //Acaba global
@@ -226,8 +234,8 @@ function initializeBreadcrumbTrail() {
 function breadcrumbPoints(d, i) {
   var points = [];
   points.push("0,0");
-  points.push(b.w + ",0");
-  points.push(b.w + b.t + "," + (b.h / 2));
+  points.push(b.w  + ",0");
+  points.push(b.w  + b.t + "," + (b.h / 2));
   points.push(b.w + "," + b.h);
   points.push("0," + b.h);
   if (i > 0) { // Leftmost breadcrumb; don't include 6th vertex.
@@ -247,7 +255,8 @@ function updateBreadcrumbs(nodeArray, percentageString) {
     });
 
   // Add breadcrumb and label for entering nodes.
-  var entering = g.enter().append("svg:g");
+  var entering = g.enter().append("svg:g")
+  .attr("padding-right", "50px");
 
   entering.append("svg:polygon")
     .attr("points", breadcrumbPoints)

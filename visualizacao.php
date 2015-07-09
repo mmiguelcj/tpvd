@@ -8,7 +8,7 @@
 			<div id="sequence"></div>
 			<div id="chart">
 				<div id="explanation" style="visibility: hidden;">
-					<span id="percentage"></span><br /> Tempo médio de recuperação.
+					<span id="percentage"></span><br /> TMR.
 				</div>
 			</div>
 		</div>

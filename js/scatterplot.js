@@ -67,17 +67,16 @@ function createScatterplot(Data) {
 
   // draw the graph object
   var g = main.append("svg:g");
-  var name;
+
   g.selectAll("scatter-dots")
     .data(ydata) // using the values in the ydata array
     .enter()
     .append("a")
     .attr("xlink:id", function(d, i){
-      name = xdata[i + 15];
       return xdata[i + 15];
     })
-    .on("click", function(){
-      return refreshSunburst(name.toLowerCase());
+    .on("click", function(d,i){
+      return parseSunburst(xdata[i + 15].toLowerCase());
     })
     .append("svg:circle") // create a new circle for each value
     .attr("cy", function(d) {
@@ -88,6 +87,7 @@ function createScatterplot(Data) {
     }) // translate x value
     .attr("r", 10) // radius of circle
     .style("opacity", 0.6); // opacity of circle
+
     
 
     //Adicionando as legendas nas bolinhas

@@ -12,15 +12,13 @@ function scarter (){
     });
 }
 
-//Refresha o grafico quando clicar nele.
-function refreshSunburst(nome){
-  parseSunburst(nome);
-}
+
 function parseSunburst(name) {
     d3.text("data/"+name+".csv", function(text) {
         var csv = d3.csv.parseRows(text);
         dados = buildHierarchy(csv);
-        createSunburst(dados);
+        console.log(dados);
+        globalSun(dados);
     });
 }
 
