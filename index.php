@@ -65,8 +65,12 @@
 
 		<div class="tab-pane" id="about">
 			<div id = "sobre">
-			<h2>Trabalho final da disciplina de Visualização de Dados</h2>
+			<h2>Trabalho final da disciplina Visualização de Dados</h2>
 			<br>
+			<h3>Instruções</h3>
+			<p>1 - Cada disco pequeno no grafico a esquerda representa uma localidade.</p>
+			<p>2 - Ao se clicar em um disco, o sunburst, a direita representa o qual foi a contribuição de cada tipo de falha.
+			<p>3 - Ao se passar o mouse sobre o sunburst, podemos visualizar a contribuição que cada item de confuguração teve na media do periodo de interrupçao, bem como a causa da falha.   
 			</div>
 		</div>
 
