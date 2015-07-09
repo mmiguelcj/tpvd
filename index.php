@@ -9,7 +9,7 @@
 
 
 <title>TP Final de Visualização de Dados</title>
-<h2> Dados relativos a Junho de 2014.</h2>
+
 
 <link rel="stylesheet" href="css/visualizacao.css">
 <link rel="stylesheet" type="text/css" href="css/sunburst.css" />

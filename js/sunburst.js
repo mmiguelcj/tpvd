@@ -65,10 +65,11 @@ var colors = {
 
 function globalSun(json) {
   console.log(json);
+
   $("#sunburst").remove();
   $("#sequence").empty();
    $("#legend").empty();
-
+   
 
   // Breadcrumb dimensions: width, height, spacing, width of tip/tail.
 
@@ -83,6 +84,8 @@ function globalSun(json) {
     .attr("id", "container")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
+  //Arrumando posição TMR
+  
 
   var partition = d3.layout.partition()
     .size([2 * Math.PI, radius * radius])
@@ -108,6 +111,7 @@ function globalSun(json) {
 }
 // Main function to draw and set up the visualization, once we have the data.
 function createSunburst(json, vis, partition, arc) {
+  //Arrumar o TMR
 
 
   //Acaba global
@@ -151,7 +155,6 @@ function createSunburst(json, vis, partition, arc) {
 
   // Get total size of the tree = value of root node from partition.
   totalSize = path.node().__data__.value;
-
 };
 
 // Fade all but the current sequence, and show it in the breadcrumb trail.

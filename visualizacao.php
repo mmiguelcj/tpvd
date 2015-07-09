@@ -1,4 +1,5 @@
 <div id="content" class="row"> 
+		<h2> Dados relativos a Junho de 2014.</h2>
 		<!--Grafico Scatterplot : col-md-8-->
 		<div id="scatteGraph" class="col">
 		</div>
@@ -40,8 +41,8 @@
 		<script type="text/javascript">
 			$(document).ready(function() {
 				scarter ();
-
 				parseSunburst("dados");
+				$("#explanation").appendTo("#sunburst");
 			});
 
 		</script>

@@ -38,6 +38,7 @@ function createScatterplot(Data) {
     .attr('height', height + margin.top + margin.bottom)
     .attr('class', 'chart')
 
+
   // the main object where the chart and axis will be drawn
   var main = chart.append('g')
     .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
@@ -52,17 +53,29 @@ function createScatterplot(Data) {
   main.append('g')
     .attr('transform', 'translate(0,' + height + ')')
     .attr('class', 'main axis date')
+    .style("visibility", "hidden")
     .call(xAxis);
 
   // draw the y axis
   var yAxis = d3.svg.axis()
     .scale(y)
-    .orient('left');
+    .orient('left').ticks(5);;
 
   main.append('g')
     .attr('transform', 'translate(0,0)')
     .attr('class', 'main axis date')
     .call(yAxis);
+
+
+  // Add the text label for the Y axis
+    main.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 )
+        .attr("x",0 - (height / 2))
+        .attr("dy", "-2em")
+        .style("font-size", "20px")
+        .style("text-anchor", "middle")
+        .text("Minutos");
 
   // draw the graph object
   var g = main.append("svg:g");
@@ -86,14 +99,14 @@ function createScatterplot(Data) {
     }) // translate x value
     .attr("r", 10) // radius of circle
     .style("opacity", 0.6) // opacity of circle
-    .attr("fill", function(d){ //Colorindo bolinhas do grafico.
-        if (d < 60){
-          return  "grey";
-        }else if (d < 75){
-          return "rgb(214, 39, 40)";
-        }else{
-          return "red";
-        }
+    .attr("fill", function(d) { //Colorindo bolinhas do grafico.
+      if (d < 60) {
+        return "grey";
+      } else if (d < 75) {
+        return "rgb(214, 39, 40)";
+      } else {
+        return "red";
+      }
     });
 
 

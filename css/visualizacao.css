@@ -7,11 +7,14 @@ a {
     cursor: pointer;
 }
 
+h2{
+    text-align: center;
+}
 
 #scatteGraph{
     float: left;
     height: 68%;
-    left: -25px;
+    left: 2px;
     position: absolute;
     width: 68%;
 }
@@ -60,6 +63,16 @@ a {
 	 height: 100%;
 }
 
-#explanation{
-    left: 55%;
+path { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
 }
