@@ -4,8 +4,8 @@ ALGUMAS COISAS GLOBAIS POR ENQUANTO.
 // Dimensions of sunburst.
 // 
 // 
-var width = $("#sunburstGraph").width()*0.8;
-var height = $("#sunburstGraph").width()*0.8;
+var width = $("#sunburstGraph").width() * 0.8;
+var height = $("#sunburstGraph").width() * 0.8;
 var radius = Math.min(width, height) / 2;
 var b = {
   w: 75,
@@ -17,102 +17,103 @@ var b = {
 var vis = null;
 // Mapping of step names to colors.
 var colors = {
-"SG2000":"#8c564b",
-"ADEQUAÇÃO":"#9ecae1",
-"AJUSTE":"#6baed6",
-"BLE":"#3182bd",
-"BTD":"#de9ed6",
-"CARCACA":"#a55194",
-"CBCOAX":"#7b4173",
-"CMTS":"#e7969c",
-"COMBINADOR":"#d6616b",
-"CONECTOR" :"#ad494a",
-"CONEXÃO":"#843c39",
-"DANIFICADO":"#e7cb94",
-"DEFEITO":"#e7ba52",
-"DISJUNTOR":"#bd9e39",
-"DISJUNTOR" :"#8c6d31",
-"EQUISUL":"#cedb9c",
-"F.ENERGIA" :"#b5cf6b",
-"FONTE":"#8ca252",
-"FUSIVEL":"#637939", 
-"GERAL":"#9c9ede",
-"INSTALACAO":"#6b6ecf", 
-"LIMPEZA":"#5254a3", 
-"MAUCONTATO":"#393b79",
-"MB":"#17becf",
-"MÓDULO" :"#bcbd22",
-"Ó.ROMPIDO":"#9467bd",
-"OXIDADO":"#d62728",
-"PASSIV":"#2ca02c",
-"PRISIONEIRO":"#ff7f0e", 
-"QUEIMADO":"#1f77b4",
-"R.INTERNA":"#9edae5",
-"REPARO":"#17becf",
-"RESET":"#dbdb8d",
-"ROMPIDO":"#bcbd22",
-"RUÍDO":"#c7c7c7",
-"S.INTERV":"#7f7f7f",
-"SG2000":"#f7b6d2",
-"SG4000":"#e377c2",
-"SSP":"#c49c94",
-"TAP":"#8c564b",
-"TRANSMITER" :"#c5b0d5",
-"VERIFIC" :"#9467bd",
-"VERIFICAÇÃO":"#ff9896"
-  
+  "SG2000": "#8c564b",
+  "ADEQUAÇÃO": "#9ecae1",
+  "AJUSTE": "#6baed6",
+  "BLE": "#3182bd",
+  "BTD": "#de9ed6",
+  "CARCACA": "#a55194",
+  "CBCOAX": "#7b4173",
+  "CMTS": "#e7969c",
+  "COMBINADOR": "#d6616b",
+  "CONECTOR": "#ad494a",
+  "CONEXÃO": "#843c39",
+  "DANIFICADO": "#e7cb94",
+  "DEFEITO": "#e7ba52",
+  "DISJUNTOR": "#bd9e39",
+  "DISJUNTOR": "#8c6d31",
+  "EQUISUL": "#cedb9c",
+  "F.ENERGIA": "#b5cf6b",
+  "FONTE": "#8ca252",
+  "FUSIVEL": "#637939",
+  "GERAL": "#9c9ede",
+  "INSTALACAO": "#6b6ecf",
+  "LIMPEZA": "#5254a3",
+  "MAUCONTATO": "#393b79",
+  "MB": "#17becf",
+  "MÓDULO": "#bcbd22",
+  "Ó.ROMPIDO": "#9467bd",
+  "OXIDADO": "#d62728",
+  "PASSIV": "#2ca02c",
+  "PRISIONEIRO": "#ff7f0e",
+  "QUEIMADO": "#1f77b4",
+  "R.INTERNA": "#9edae5",
+  "REPARO": "#17becf",
+  "RESET": "#dbdb8d",
+  "ROMPIDO": "#bcbd22",
+  "RUÍDO": "#c7c7c7",
+  "S.INTERV": "#7f7f7f",
+  "SG2000": "#f7b6d2",
+  "SG4000": "#e377c2",
+  "SSP": "#c49c94",
+  "TAP": "#8c564b",
+  "TRANSMITER": "#c5b0d5",
+  "VERIFIC": "#9467bd",
+  "VERIFICAÇÃO": "#ff9896"
+
 };
 
 function globalSun(json) {
   console.log(json);
-$("#sunburst").remove();
-$("#sequence").empty();
+  $("#sunburst").remove();
+  $("#sequence").empty();
+   $("#legend").empty();
 
 
-// Breadcrumb dimensions: width, height, spacing, width of tip/tail.
+  // Breadcrumb dimensions: width, height, spacing, width of tip/tail.
 
   //Global
   var totalSize = 0;
 
   vis = d3.select("#chart").append("svg:svg")
-  .attr("id", "sunburst")
-  .attr("width", width)
-  .attr("height", height)
-  .append("svg:g")
-  .attr("id", "container")
-  .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-  
-  
-var partition = d3.layout.partition()
-  .size([2 * Math.PI, radius * radius])
-  .value(function(d) {
-    return d.size;
-  });
+    .attr("id", "sunburst")
+    .attr("width", width)
+    .attr("height", height)
+    .append("svg:g")
+    .attr("id", "container")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-var arc = d3.svg.arc()
-  .startAngle(function(d) {
-    return d.x;
-  })
-  .endAngle(function(d) {
-    return d.x + d.dx;
-  })
-  .innerRadius(function(d) {
-    return Math.sqrt(d.y);
-  })
-  .outerRadius(function(d) {
-    return Math.sqrt(d.y + d.dy);
-  });
+
+  var partition = d3.layout.partition()
+    .size([2 * Math.PI, radius * radius])
+    .value(function(d) {
+      return d.size;
+    });
+
+  var arc = d3.svg.arc()
+    .startAngle(function(d) {
+      return d.x;
+    })
+    .endAngle(function(d) {
+      return d.x + d.dx;
+    })
+    .innerRadius(function(d) {
+      return Math.sqrt(d.y);
+    })
+    .outerRadius(function(d) {
+      return Math.sqrt(d.y + d.dy);
+    });
 
   createSunburst(json, vis, partition, arc);
 }
 // Main function to draw and set up the visualization, once we have the data.
 function createSunburst(json, vis, partition, arc) {
- 
 
-//Acaba global
+
+  //Acaba global
 
   // Total size of all segments; we set this later, after loading the data.
-  
+
 
   // Basic setup of page elements.
   initializeBreadcrumbTrail();
@@ -234,8 +235,8 @@ function initializeBreadcrumbTrail() {
 function breadcrumbPoints(d, i) {
   var points = [];
   points.push("0,0");
-  points.push(b.w  + ",0");
-  points.push(b.w  + b.t + "," + (b.h / 2));
+  points.push(b.w + ",0");
+  points.push(b.w + b.t + "," + (b.h / 2));
   points.push(b.w + "," + b.h);
   points.push("0," + b.h);
   if (i > 0) { // Leftmost breadcrumb; don't include 6th vertex.
@@ -256,7 +257,7 @@ function updateBreadcrumbs(nodeArray, percentageString) {
 
   // Add breadcrumb and label for entering nodes.
   var entering = g.enter().append("svg:g")
-  .attr("padding-right", "50px");
+    .attr("padding-right", "50px");
 
   entering.append("svg:polygon")
     .attr("points", breadcrumbPoints)

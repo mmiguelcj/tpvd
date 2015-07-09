@@ -34,7 +34,7 @@ function createScatterplot(Data) {
   // the chart object, includes all margins
   var chart = d3.select('#scatteGraph')
     .append('svg:svg')
-    .attr('width', width + margin.right + margin.left+ 70)
+    .attr('width', width + margin.right + margin.left + 70)
     .attr('height', height + margin.top + margin.bottom)
     .attr('class', 'chart')
 
@@ -47,8 +47,7 @@ function createScatterplot(Data) {
 
   // draw the x axis
   var xAxis = d3.svg.axis()
-    .scale(x
-)    .orient('bottom');
+    .scale(x).orient('bottom');
 
   main.append('g')
     .attr('transform', 'translate(0,' + height + ')')
@@ -72,10 +71,10 @@ function createScatterplot(Data) {
     .data(ydata) // using the values in the ydata array
     .enter()
     .append("a")
-    .attr("xlink:id", function(d, i){
+    .attr("xlink:id", function(d, i) {
       return xdata[i + 15];
     })
-    .on("click", function(d,i){
+    .on("click", function(d, i) {
       return parseSunburst(xdata[i + 15].toLowerCase());
     })
     .append("svg:circle") // create a new circle for each value
@@ -86,24 +85,33 @@ function createScatterplot(Data) {
       return x(xdata[i]);
     }) // translate x value
     .attr("r", 10) // radius of circle
-    .style("opacity", 0.6); // opacity of circle
+    .style("opacity", 0.6) // opacity of circle
+    .attr("fill", function(d){ //Colorindo bolinhas do grafico.
+        if (d < 60){
+          return  "grey";
+        }else if (d < 75){
+          return "rgb(214, 39, 40)";
+        }else{
+          return "red";
+        }
+    });
 
-    
 
-    //Adicionando as legendas nas bolinhas
-    var texto =  g.selectAll("text")
-      .data(ydata)
-      .enter().append("text")
-      .text( function(d, i) {
-        return Data[xdata[i + 15]].length+" - "+xdata[i + 15];
-      })
-      .attr("font-family", "sans-serif")
-      .attr("font-size", "12px")
-      .attr("fill", "red")
-      .attr("x", function(d, i) {
-        return x(xdata[i])+12; //ajutste
-      })
-      .attr("y", function(d) {
-        return y(d)-8;
-      });
+
+  //Adicionando as legendas nas bolinhas
+  var texto = g.selectAll("text")
+    .data(ydata)
+    .enter().append("text")
+    .text(function(d, i) {
+      return Data[xdata[i + 15]].length + " - " + xdata[i + 15];
+    })
+    .attr("font-family", "sans-serif")
+    .attr("font-size", "12px")
+    .attr("fill", "red")
+    .attr("x", function(d, i) {
+      return x(xdata[i]) + 12; //ajutste
+    })
+    .attr("y", function(d) {
+      return y(d) - 8;
+    });
 }

@@ -3,7 +3,7 @@
  *o transforma em um Objeto.
  */
 //Gera Scaterplot
-function scarter (){
+function scarter() {
     d3.text("data/data.csv", function(text) {
         var json = d3.csv.parse(text);
         var dataScatter = parseScatterplot(json);
@@ -14,7 +14,7 @@ function scarter (){
 
 
 function parseSunburst(name) {
-    d3.text("data/"+name+".csv", function(text) {
+    d3.text("data/" + name + ".csv", function(text) {
         var csv = d3.csv.parseRows(text);
         dados = buildHierarchy(csv);
         console.log(dados);
@@ -142,8 +142,8 @@ function buildHierarchy(csv) {
 
 //codigo para manipular a legenda
 
-$(document).ready(function(){
-    $("#botaoLegenda").click(function(){
+$(document).ready(function() {
+    $("#botaoLegenda").click(function() {
         $("#legend").slideToggle("slow");
     });
 });
