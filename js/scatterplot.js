@@ -56,6 +56,7 @@ function createScatterplot(Data) {
     .style("visibility", "hidden")
     .call(xAxis);
 
+
   // draw the y axis
   var yAxis = d3.svg.axis()
     .scale(y)
@@ -68,14 +69,14 @@ function createScatterplot(Data) {
 
 
   // Add the text label for the Y axis
-    main.append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 0 )
-        .attr("x",0 - (height / 2))
-        .attr("dy", "-2em")
-        .style("font-size", "20px")
-        .style("text-anchor", "middle")
-        .text("Minutos");
+  main.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0)
+    .attr("x", 0 - (height / 2))
+    .attr("dy", "-2em")
+    .style("font-size", "20px")
+    .style("text-anchor", "middle")
+    .text("Minutos");
 
   // draw the graph object
   var g = main.append("svg:g");
@@ -86,9 +87,6 @@ function createScatterplot(Data) {
     .append("a")
     .attr("xlink:id", function(d, i) {
       return xdata[i + 15];
-    })
-    .on("click", function(d, i) {
-      return parseSunburst(xdata[i + 15].toLowerCase());
     })
     .append("svg:circle") // create a new circle for each value
     .attr("cy", function(d) {
@@ -107,6 +105,20 @@ function createScatterplot(Data) {
       } else {
         return "red";
       }
+    })
+    .on("click", function(d, i) {
+      g.selectAll("circle")
+        .attr("fill", function(d) { //Colorindo bolinhas do grafico.
+          if (d < 60) {
+            return "grey";
+          } else if (d < 75) {
+            return "rgb(214, 39, 40)";
+          } else {
+            return "red";
+          }
+        });
+      d3.select(this).attr("fill", "rgb(25, 247, 0)");
+      return parseSunburst(xdata[i + 15].toLowerCase());
     });
 
 
