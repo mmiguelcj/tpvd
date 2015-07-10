@@ -121,7 +121,7 @@ function createSunburst(json, vis, partition, arc) {
 
   // Basic setup of page elements.
   initializeBreadcrumbTrail();
-  drawLegend();
+  //drawLegend();
   d3.select("#togglelegend").on("click", toggleLegend);
 
   // Bounding circle underneath the sunburst, to make it easier to detect

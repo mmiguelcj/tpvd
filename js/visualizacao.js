@@ -143,7 +143,7 @@ function buildHierarchy(csv) {
 
 $(document).ready(function() {
     $("#botaoLegenda").click(function() {
-        $("#legend").slideToggle("slow");
+        parseSunburst("dados");
     });
 });
 
