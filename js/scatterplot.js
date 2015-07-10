@@ -60,7 +60,7 @@ function createScatterplot(Data) {
   // draw the y axis
   var yAxis = d3.svg.axis()
     .scale(y)
-    .orient('left').ticks(5);;
+    .orient('left').ticks(20);;
 
   main.append('g')
     .attr('transform', 'translate(0,0)')
