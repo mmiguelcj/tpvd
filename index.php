@@ -74,6 +74,7 @@
 			<p>2 - Ao se clicar em um disco, é representado no sunburst a direita a contribuição que cada tipo de falha teve na media de interrupção mensal.
 			<p>3 - Ao se passar o mouse sobre o sunburst, podemos visualizar a contribuição que cada item de configuração teve na media do periodo de interrupção, bem como a causa da falha.  
 			<p>A sigla TMR significa "Tempo Medio de Recuperação". Ou seja, ao se verificar a porcentagem de TMR referente ao item selecionado no sunburst, temos o quanto aquele item contribuiu<br> proporcionalmente, na media do tempo de interrupção, da localidade selecionada. 
+			<p>O eixo Y representa o tempo médio de recuperação de falhas.
 			</div>
 		</div>
 
